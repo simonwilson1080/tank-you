@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cjxudsimma73h"]
+
+[node name="Node2D" type="Node2D" unique_id=1610516015]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=2040257594]
+
+[node name="MainMenu" type="MarginContainer" parent="." unique_id=650785817]
+offset_right = 40.0
+offset_bottom = 40.0
