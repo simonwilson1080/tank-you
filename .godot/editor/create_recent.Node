@@ -1,2 +1,8 @@
+LinkButton
+Label
+Button
+LineEdit
+Panel
+TextureRect
 MarginContainer
 Sprite2D

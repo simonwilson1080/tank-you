@@ -1,3 +1,8 @@
 78098b89c88a74ebe8c20117b8754620
-::res://::1793133723
+::res://::1793325673
 icon.svg::CompressedTexture2D::4721606584210830721::1793133719::1793133724::1::::<><><>0<>0<>e510989d06f06612fc9770662b1a0bf2<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+README.md::TextFile::-1::1793133879::0::1::::<><><>0<>0<><>::
+::res://Assets/::1793134176
+::res://Scenes/::1793135836
+Menu.tscn::PackedScene::5453242304048949375::1793135836::0::1::::<><><>0<>0<><>::uid://cf3p4rsc0f7dx::::res://Scripts/lobby.gd
+::res://Scripts/::1793135934
