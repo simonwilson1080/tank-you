@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://d3mvhgaqfcx5y"]
+[gd_scene format=4 uid="uid://d3mvhgaqfcx5y"]
 
 [ext_resource type="Texture2D" uid="uid://dg5fe6kf3q01i" path="res://Assets/Level1.png" id="1_4hvuo"]
-
+[ext_resource type="AudioStream" uid="uid://38rgp82frmuv" path="res://Assets/audio/tank-song.wav" id="2_audio"]
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l022t"]
 size = Vector2(1332, 71)
 
@@ -58,3 +58,6 @@ texture_filter = 1
 position = Vector2(571, 325)
 scale = Vector2(2.5820315, 2.5820315)
 texture = ExtResource("1_4hvuo")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=249342389]
+stream = ExtResource("2_audio")
