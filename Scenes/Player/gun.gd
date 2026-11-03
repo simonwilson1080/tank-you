@@ -8,6 +8,7 @@ extends Marker2D
 @rpc("call_local")
 func shoot() -> void:
 	var bullet = bullet_scene.instantiate() as Bullet
+	
 	# prevents bullets from rotating with mouse
 	bullet.top_level = true
 	bullet.global_transform = global_transform

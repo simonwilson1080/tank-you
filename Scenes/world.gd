@@ -6,6 +6,7 @@ extends Node2D
 
 
 func _ready() -> void:
+	# player_spawner
 	player_spawner.spawn_function = _ms_player
 
 func spawn_player(authority_pid: int) -> void:

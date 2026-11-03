@@ -2,3 +2,5 @@ res://Scenes/Player/player.tscn
 res://Scenes/Player/cannon.gd
 res://Scenes/Player/gun.gd
 res://Scenes/Player/player.gd
+res://Scenes/world.tscn
+res://Scenes/world.gd
