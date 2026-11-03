@@ -1,14 +1,50 @@
 [gd_scene format=3 uid="uid://coc8gfv5xibmi"]
 
-[ext_resource type="Texture2D" uid="uid://d3ubavqbdc6un" path="res://Assets/TankBase.png" id="1_a3d8c"]
 [ext_resource type="Script" uid="uid://dyw5yp8rkgn1c" path="res://Scenes/Player/player.gd" id="1_xpcdj"]
-[ext_resource type="Texture2D" uid="uid://dkoivmg5vhxlt" path="res://Assets/Cannon.png" id="2_xpcdj"]
+[ext_resource type="Texture2D" uid="uid://ccbob1ylp0vo6" path="res://Assets/TANK-BODY.png" id="2_dd0ac"]
+[ext_resource type="Texture2D" uid="uid://cuywiltrsfcl3" path="res://Assets/GUN.png" id="4_0u5uq"]
 [ext_resource type="Script" uid="uid://bor01lwgrywv8" path="res://Scenes/Player/cannon.gd" id="4_mtuoh"]
 [ext_resource type="Script" uid="uid://b8rc4u4631tha" path="res://Scenes/Player/gun.gd" id="5_htcer"]
 [ext_resource type="PackedScene" uid="uid://duxukgo82n6uv" path="res://Scenes/Bullet/bullet.tscn" id="6_dd0ac"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l022t"]
 size = Vector2(50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlvik"]
+atlas = ExtResource("2_dd0ac")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gk6dx"]
+atlas = ExtResource("2_dd0ac")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhyir"]
+atlas = ExtResource("2_dd0ac")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74mp2"]
+atlas = ExtResource("2_dd0ac")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dk6l3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jlvik")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gk6dx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jhyir")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_74mp2")
+}],
+"loop": 1,
+"name": &"move",
+"speed": 5.0
+}]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_dd0ac"]
 properties/0/path = NodePath(".:rotation")
@@ -26,22 +62,24 @@ script = ExtResource("1_xpcdj")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=967386705]
 shape = SubResource("RectangleShape2D_l022t")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1106151886]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=405102394]
 texture_filter = 1
-scale = Vector2(0.5614835, 0.5614835)
-texture = ExtResource("1_a3d8c")
+rotation = 1.5707964
+sprite_frames = SubResource("SpriteFrames_dk6l3")
+animation = &"move"
+frame_progress = 0.35927084
 
 [node name="Canon" type="Node2D" parent="." unique_id=1468192755]
 script = ExtResource("4_mtuoh")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Canon" unique_id=1483557758]
 texture_filter = 1
-position = Vector2(0, 1.1920929e-07)
+position = Vector2(11, 0)
 rotation = 1.5707964
-scale = Vector2(0.8221763, 0.8221763)
-texture = ExtResource("2_xpcdj")
+texture = ExtResource("4_0u5uq")
 
 [node name="Gun" type="Marker2D" parent="Canon" unique_id=1855118346]
+position = Vector2(31, 0)
 script = ExtResource("5_htcer")
 bullet_scene = ExtResource("6_dd0ac")
 

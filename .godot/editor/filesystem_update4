@@ -1,6 +1,7 @@
 res://Scenes/Player/player.tscn
-res://Scenes/Player/cannon.gd
-res://Scenes/Player/gun.gd
 res://Scenes/Player/player.gd
 res://Scenes/world.tscn
+res://default_bus_layout.tres
+res://Scenes/Game/Game.tscn
+res://Scenes/Game/game.gd
 res://Scenes/world.gd

@@ -1,3 +1,6 @@
+AudioStreamPlayer
+AudioStreamPlayer2D
+AnimatedSprite2D
 CharacterBody2D
 MultiplayerSynchronizer
 VisibleOnScreenNotifier2D
@@ -10,6 +13,3 @@ Node
 CanvasLayer
 Button
 LineEdit
-HBoxContainer
-Label
-VBoxContainer

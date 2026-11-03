@@ -1,7 +1,7 @@
 class_name Player
 extends CharacterBody2D
 
-@export var speed: float = 250.0
+@export var speed: float = 100.0
 
 var rot = 0.0
 
@@ -29,7 +29,10 @@ func _physics_process(delta: float) -> void:
 	input_vector = input_vector.normalized()
 	
 	velocity = velocity.move_toward(input_vector * speed, 1000 * delta)
-		
+	if velocity != Vector2.ZERO:
+		$Sprite2D.play("move")
+	
+	
 	if velocity != Vector2.ZERO:
 		self.rotation = velocity.angle()
 	
