@@ -1,23 +1,45 @@
+extends CharacterBody2D
 class_name Bullet
-extends Area2D
 
-const SPEED: float = 500.0
-
-var shooter: Node2D
+@export var SPEED: float = 600.0
+var shooter: Node2D = null
+var bounce_count = 0
 
 func _physics_process(delta: float) -> void:
-	global_position += global_transform.x * SPEED * delta
+
+	var movement = global_transform.x * SPEED * delta
 	
+	# move_and_collide returns data ONLY if it hits a physics wall
+	var collision_info = move_and_collide(movement)
+	
+	if collision_info:
+		bounce_count += 1
+		var body = collision_info.get_collider()
+		
+		if bounce_count >= 4:
+			queue_free()
+		
+		# Ignore the person who shot it
+		if body == shooter:
+			# If we hit the shooter, manually force the bullet past them so it doesn't get stuck
+			global_position += movement
+			return
+			
+		# Handle Player hit
+		if body.is_in_group("player"):
+			body.queue_free()
+			get_tree().change_scene_to_file("res://Scenes/Game/Game.tscn")
+			return
+			
+
+		# Retrieve the completely accurate surface normal from the hit point
+		var normal: Vector2 = collision_info.get_normal()
+		
+		# Bounce our current forward vector against the wall normal
+		var new_direction: Vector2 = global_transform.x.bounce(normal)
+		
+		# Rotate the bullet to point in the new direction
+		global_rotation = new_direction.angle()
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
-	# despawn bullet when it leaves the screen
 	queue_free()
-
-
-func _on_body_entered(body: Node2D) -> void:
-	if body == shooter:
-		return
-
-	if body.is_in_group("player"):
-		body.queue_free()
-		get_tree().change_scene_to_file("res://Scenes/Game/Game.tscn")

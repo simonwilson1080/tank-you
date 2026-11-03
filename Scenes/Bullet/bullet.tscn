@@ -6,7 +6,7 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k7rnr"]
 radius = 8.0
 
-[node name="Bullet" type="Area2D" unique_id=1032931389]
+[node name="Bullet" type="CharacterBody2D" unique_id=944557022]
 script = ExtResource("1_lv0gj")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1031925024]
@@ -20,5 +20,4 @@ shape = SubResource("CapsuleShape2D_k7rnr")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=934688485]
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

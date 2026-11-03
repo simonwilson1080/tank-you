@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://nd53bjp6ryrb" path="res://Scenes/Game/ui/enet_connection_manager.gd" id="1_07dfn"]
 [ext_resource type="Script" uid="uid://dfyoirtkbayel" path="res://Scenes/Game/ui/connection_manager.gd" id="1_qdm4f"]
+[ext_resource type="Texture2D" uid="uid://pkar0giunty0" path="res://Assets/tank-you.png" id="3_k1yvb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_l022t"]
 font_size = 28
@@ -36,7 +37,10 @@ label_settings = SubResource("LabelSettings_l022t")
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 93.0
+offset_left = 2.0
+offset_top = 287.0
+offset_right = 2.0
+offset_bottom = 455.0
 grow_horizontal = 2
 theme_override_constants/margin_left = 350
 theme_override_constants/margin_top = 75
@@ -79,6 +83,10 @@ text = "Join
 [node name="HostENet" type="Button" parent="MarginContainer/ConnectionMethods/ENet/VBoxContainer" unique_id=1970555261]
 layout_mode = 2
 text = "Host"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=848632164]
+position = Vector2(572, 180)
+texture = ExtResource("3_k1yvb")
 
 [connection signal="pressed" from="MarginContainer/ConnectionMethods/ENet/VBoxContainer/joinMenu/Join" to="MarginContainer/ConnectionMethods/ENet" method="_on_join_pressed"]
 [connection signal="pressed" from="MarginContainer/ConnectionMethods/ENet/VBoxContainer/HostENet" to="MarginContainer/ConnectionMethods/ENet" method="_on_host_e_net_pressed"]
