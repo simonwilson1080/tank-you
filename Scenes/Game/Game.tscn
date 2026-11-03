@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://t423jyiqlmuq" path="res://Scenes/Game/game.gd" id="1_xbxml"]
 [ext_resource type="PackedScene" uid="uid://cexpqgxtuncb4" path="res://Scenes/Game/ui/connection_manager.tscn" id="2_xbxml"]
 
-[node name="Game" type="Node2D" unique_id=2086078677]
+[node name="Game" type="Node" unique_id=2052873357]
 script = ExtResource("1_xbxml")
 
 [node name="World" parent="." unique_id=170659947 instance=ExtResource("1_gwu2e")]

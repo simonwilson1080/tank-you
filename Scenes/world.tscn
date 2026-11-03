@@ -13,6 +13,6 @@ player_spawner = NodePath("OnlineEntities/PlayerSpawner")
 
 [node name="OnlineEntities" type="Node" parent="." unique_id=1464647381]
 
-[node name="PlayerSpawner" type="MultiplayerSpawner" parent="OnlineEntities" unique_id=1731220296]
+[node name="PlayerSpawner" type="MultiplayerSpawner" parent="OnlineEntities" unique_id=926880050]
 _spawnable_scenes = PackedStringArray("uid://coc8gfv5xibmi")
 spawn_path = NodePath("..")

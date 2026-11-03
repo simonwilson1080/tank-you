@@ -1,6 +1,11 @@
-MultiplayerSynchronizer
+VisibleOnScreenNotifier2D
+Marker2D
+CollisionShape2D
+Sprite2D
+Area2D
 MultiplayerSpawner
 Node
+MultiplayerSynchronizer
 CanvasLayer
 Button
 LineEdit
@@ -8,8 +13,3 @@ HBoxContainer
 Label
 VBoxContainer
 PanelContainer
-MarginContainer
-Node2D
-StaticBody2D
-Area2D
-CollisionShape2D

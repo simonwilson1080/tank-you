@@ -11,3 +11,6 @@ res://Scenes/world.tscn
 res://Scenes/Game/ui/connection_manager.gd
 res://Scenes/Game/game.gd
 res://Scenes/world.gd
+res://Scenes/Bullet/bullet.tscn
+res://Scenes/Player/gun.gd
+res://Scenes/Bullet/bullet.gd
