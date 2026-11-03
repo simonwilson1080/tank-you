@@ -11,6 +11,7 @@ func shoot() -> void:
 	
 	# prevents bullets from rotating with mouse
 	bullet.top_level = true
+	bullet.shooter = get_parent().get_parent()
 	bullet.global_transform = global_transform
 	add_child(bullet)
 	
