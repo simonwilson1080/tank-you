@@ -1,9 +1,10 @@
-# Godot 4.2+ specific ignores
+
 ~*.dll
 
 # Godot 4+ specific ignores
 .godot/
 .nomedia
+.godot/editor
 
 # Godot-specific ignores
 .import/
