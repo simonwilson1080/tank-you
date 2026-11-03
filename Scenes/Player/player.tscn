@@ -10,13 +10,15 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l022t"]
 size = Vector2(50, 50)
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_dd0ac"]
+properties/0/path = NodePath(".:rotation")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_mtuoh"]
 properties/0/path = NodePath(".:position")
 properties/0/spawn = true
 properties/0/replication_mode = 1
-properties/1/path = NodePath(".:rotation")
-properties/1/spawn = true
-properties/1/replication_mode = 1
 
 [node name="Player" type="CharacterBody2D" unique_id=1613934413]
 script = ExtResource("1_xpcdj")
@@ -42,6 +44,9 @@ texture = ExtResource("2_xpcdj")
 [node name="Gun" type="Marker2D" parent="Canon" unique_id=1855118346]
 script = ExtResource("5_htcer")
 bullet_scene = ExtResource("6_dd0ac")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="Canon" unique_id=2119769273]
+replication_config = SubResource("SceneReplicationConfig_dd0ac")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=722894292]
 replication_config = SubResource("SceneReplicationConfig_mtuoh")

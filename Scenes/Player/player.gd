@@ -6,7 +6,7 @@ extends CharacterBody2D
 func _enter_tree() -> void:
 	set_multiplayer_authority(int(str(name)))
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	# restricting host from controlling joined players
 	if !is_multiplayer_authority():
 		return

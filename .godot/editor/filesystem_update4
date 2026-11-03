@@ -1,16 +1,4 @@
-res://Scenes/World.tscn
-res://Scenes/Player/player.gd
 res://Scenes/Player/player.tscn
-res://Scenes/level1.tscn
 res://Scenes/Player/cannon.gd
-res://Scenes/Game.tscn
-res://Scenes/Game/ui/connection_manager.tscn
-res://Scenes/Game/ui/enet_connection_manager.gd
-res://Scenes/Game/Game.tscn
-res://Scenes/world.tscn
-res://Scenes/Game/ui/connection_manager.gd
-res://Scenes/Game/game.gd
-res://Scenes/world.gd
-res://Scenes/Bullet/bullet.tscn
 res://Scenes/Player/gun.gd
-res://Scenes/Bullet/bullet.gd
+res://Scenes/Player/player.gd

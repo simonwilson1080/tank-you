@@ -13,7 +13,7 @@ func shoot() -> void:
 	bullet.global_transform = global_transform
 	add_child(bullet)
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	# fixes shooting from both host and client
 	if !is_multiplayer_authority():
 		return
