@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://cexpqgxtuncb4"]
+
+[ext_resource type="Script" uid="uid://nd53bjp6ryrb" path="res://Scenes/Game/ui/enet_connection_manager.gd" id="1_07dfn"]
+[ext_resource type="Script" uid="uid://dfyoirtkbayel" path="res://Scenes/Game/ui/connection_manager.gd" id="1_qdm4f"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_l022t"]
+font_size = 28
+
+[node name="ConnectionManager" type="Control" unique_id=1864540233 node_paths=PackedStringArray("enet")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qdm4f")
+enet = NodePath("MarginContainer/ConnectionMethods/ENet")
+
+[node name="TitleContainer" type="MarginContainer" parent="." unique_id=420834296]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -126.5
+offset_right = 126.5
+offset_bottom = 39.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="TitleContainer" unique_id=1255129942]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Connect to a lobby"
+label_settings = SubResource("LabelSettings_l022t")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1204575856]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 93.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 350
+theme_override_constants/margin_top = 75
+theme_override_constants/margin_right = 350
+
+[node name="ConnectionMethods" type="VBoxContainer" parent="MarginContainer" unique_id=813717383]
+layout_mode = 2
+
+[node name="ENet" type="PanelContainer" parent="MarginContainer/ConnectionMethods" unique_id=793600411 node_paths=PackedStringArray("host_ip", "host_port")]
+layout_mode = 2
+script = ExtResource("1_07dfn")
+host_ip = NodePath("VBoxContainer/joinMenu/HostIP")
+host_port = NodePath("VBoxContainer/joinMenu/HostPort")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ConnectionMethods/ENet" unique_id=1418189151]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/ConnectionMethods/ENet/VBoxContainer" unique_id=893595350]
+layout_mode = 2
+text = "ENet Connect!"
+horizontal_alignment = 1
+
+[node name="joinMenu" type="HBoxContainer" parent="MarginContainer/ConnectionMethods/ENet/VBoxContainer" unique_id=304591021]
+layout_mode = 2
+
+[node name="HostIP" type="LineEdit" parent="MarginContainer/ConnectionMethods/ENet/VBoxContainer/joinMenu" unique_id=861151909]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "127.0.0.1"
+
+[node name="HostPort" type="LineEdit" parent="MarginContainer/ConnectionMethods/ENet/VBoxContainer/joinMenu" unique_id=161444249]
+layout_mode = 2
+text = "25565"
+
+[node name="Join" type="Button" parent="MarginContainer/ConnectionMethods/ENet/VBoxContainer/joinMenu" unique_id=488809949]
+layout_mode = 2
+text = "Join
+"
+
+[node name="HostENet" type="Button" parent="MarginContainer/ConnectionMethods/ENet/VBoxContainer" unique_id=1970555261]
+layout_mode = 2
+text = "Host"
+
+[connection signal="pressed" from="MarginContainer/ConnectionMethods/ENet/VBoxContainer/joinMenu/Join" to="MarginContainer/ConnectionMethods/ENet" method="_on_join_pressed"]
+[connection signal="pressed" from="MarginContainer/ConnectionMethods/ENet/VBoxContainer/HostENet" to="MarginContainer/ConnectionMethods/ENet" method="_on_host_e_net_pressed"]

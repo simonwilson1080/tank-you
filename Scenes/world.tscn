@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cjxudsimma73h"]
+
+[ext_resource type="Script" uid="uid://capgxru13deph" path="res://Scenes/world.gd" id="1_go701"]
+[ext_resource type="PackedScene" uid="uid://d3mvhgaqfcx5y" path="res://Scenes/level1.tscn" id="1_j0p05"]
+[ext_resource type="PackedScene" uid="uid://coc8gfv5xibmi" path="res://Scenes/Player/player.tscn" id="2_j0p05"]
+
+[node name="World" type="Node2D" unique_id=170659947 node_paths=PackedStringArray("player_spawner")]
+script = ExtResource("1_go701")
+player_scene = ExtResource("2_j0p05")
+player_spawner = NodePath("OnlineEntities/PlayerSpawner")
+
+[node name="Level1" parent="." unique_id=2135416209 instance=ExtResource("1_j0p05")]
+
+[node name="OnlineEntities" type="Node" parent="." unique_id=1464647381]
+
+[node name="PlayerSpawner" type="MultiplayerSpawner" parent="OnlineEntities" unique_id=1731220296]
+_spawnable_scenes = PackedStringArray("uid://coc8gfv5xibmi")
+spawn_path = NodePath("..")

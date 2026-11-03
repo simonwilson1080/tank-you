@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://d3mvhgaqfcx5y"]
+
+[ext_resource type="Texture2D" uid="uid://dg5fe6kf3q01i" path="res://Assets/Level1.png" id="1_4hvuo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l022t"]
+size = Vector2(1332, 71)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g8wxe"]
+size = Vector2(149, 667)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4uaja"]
+size = Vector2(144, 676)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hsh05"]
+size = Vector2(1156, 75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_27i4d"]
+size = Vector2(41, 206)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pan1n"]
+size = Vector2(42, 248)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6bnsh"]
+size = Vector2(42, 193)
+
+[node name="Level1" type="StaticBody2D" unique_id=1202714289]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1746359520]
+position = Vector2(577, 26.5)
+shape = SubResource("RectangleShape2D_l022t")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=955963877]
+position = Vector2(-17.5, 323.5)
+shape = SubResource("RectangleShape2D_g8wxe")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="." unique_id=885459637]
+position = Vector2(1162, 323)
+shape = SubResource("RectangleShape2D_4uaja")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="." unique_id=1657219053]
+position = Vector2(568, 618.5)
+shape = SubResource("RectangleShape2D_hsh05")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="." unique_id=1137589359]
+position = Vector2(297.5, 485)
+shape = SubResource("RectangleShape2D_27i4d")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="." unique_id=548332355]
+position = Vector2(571, 325)
+shape = SubResource("RectangleShape2D_pan1n")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="." unique_id=1211934646]
+position = Vector2(863, 156.5)
+shape = SubResource("RectangleShape2D_6bnsh")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=525451765]
+texture_filter = 1
+position = Vector2(571, 325)
+scale = Vector2(2.5820315, 2.5820315)
+texture = ExtResource("1_4hvuo")

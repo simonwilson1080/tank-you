@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://coc8gfv5xibmi"]
+
+[ext_resource type="Texture2D" uid="uid://d3ubavqbdc6un" path="res://Assets/TankBase.png" id="1_a3d8c"]
+[ext_resource type="Script" uid="uid://dyw5yp8rkgn1c" path="res://Scenes/Player/player.gd" id="1_xpcdj"]
+[ext_resource type="Texture2D" uid="uid://dkoivmg5vhxlt" path="res://Assets/Cannon.png" id="2_xpcdj"]
+[ext_resource type="Script" uid="uid://bor01lwgrywv8" path="res://Scenes/Player/cannon.gd" id="4_mtuoh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l022t"]
+size = Vector2(50, 50)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_mtuoh"]
+
+[node name="Player" type="CharacterBody2D" unique_id=1613934413]
+script = ExtResource("1_xpcdj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=967386705]
+shape = SubResource("RectangleShape2D_l022t")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1106151886]
+texture_filter = 1
+scale = Vector2(0.5614835, 0.5614835)
+texture = ExtResource("1_a3d8c")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1468192755]
+script = ExtResource("4_mtuoh")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Node2D" unique_id=1483557758]
+texture_filter = 1
+position = Vector2(0, 1.1920929e-07)
+rotation = 1.5707964
+scale = Vector2(0.8221763, 0.8221763)
+texture = ExtResource("2_xpcdj")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=722894292]
+replication_config = SubResource("SceneReplicationConfig_mtuoh")
