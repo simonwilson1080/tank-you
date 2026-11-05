@@ -1,4 +1,2 @@
-res://Scenes/level1.tscn
-res://Scenes/Game/ui/connection_manager.tscn
-res://Scenes/Bullet/bullet.gd
-res://Scenes/Bullet/bullet.tscn
+res://Scenes/world.tscn
+res://Scenes/world.gd

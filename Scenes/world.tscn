@@ -16,3 +16,17 @@ player_spawner = NodePath("OnlineEntities/PlayerSpawner")
 [node name="PlayerSpawner" type="MultiplayerSpawner" parent="OnlineEntities" unique_id=926880050]
 _spawnable_scenes = PackedStringArray("uid://coc8gfv5xibmi")
 spawn_path = NodePath("..")
+
+[node name="SpawnPoints" type="Node2D" parent="." unique_id=1515530252]
+
+[node name="Marker2D" type="Marker2D" parent="SpawnPoints" unique_id=12151344]
+position = Vector2(904, 441)
+
+[node name="Marker2D2" type="Marker2D" parent="SpawnPoints" unique_id=1604812437]
+position = Vector2(718, 180)
+
+[node name="Marker2D3" type="Marker2D" parent="SpawnPoints" unique_id=1528981682]
+position = Vector2(181, 402)
+
+[node name="Marker2D4" type="Marker2D" parent="SpawnPoints" unique_id=268579484]
+position = Vector2(127, 119)
