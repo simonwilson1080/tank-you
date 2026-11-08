@@ -17,9 +17,10 @@ func shoot() -> void:
 	# move the bullets spawn point further ahead of the barrel
 	# this stops the bullet from dragging the tank off with it
 	bullet.global_transform = global_transform
-	bullet.global_position += bullet.global_transform.x * 20.0
+	bullet.global_position += bullet.global_transform.x * 10.0
 	
 	add_child(bullet)
+	(get_node("../../Arrow1") as AudioStreamPlayer).play()
 	
 func _process(_delta: float) -> void:
 	# fixes shooting from both host and client

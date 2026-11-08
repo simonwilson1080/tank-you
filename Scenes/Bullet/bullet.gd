@@ -32,8 +32,10 @@ func _physics_process(delta: float) -> void:
 				body.die()
 			queue_free()
 			return
-			
-
+		
+		# wall collision sfx
+		$Tink.play()
+		
 		# Retrieve the completely accurate surface normal from the hit point
 		var normal: Vector2 = collision_info.get_normal()
 		

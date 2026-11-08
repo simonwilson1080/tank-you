@@ -7,6 +7,9 @@
 [ext_resource type="Script" uid="uid://bor01lwgrywv8" path="res://Scenes/Player/cannon.gd" id="4_mtuoh"]
 [ext_resource type="Script" uid="uid://b8rc4u4631tha" path="res://Scenes/Player/gun.gd" id="5_htcer"]
 [ext_resource type="PackedScene" uid="uid://duxukgo82n6uv" path="res://Scenes/Bullet/bullet.tscn" id="6_dd0ac"]
+[ext_resource type="AudioStream" uid="uid://ckcod7ne1did3" path="res://Assets/SFX/bomb explode.wav" id="8_gk6dx"]
+[ext_resource type="AudioStream" uid="uid://c7lm2yr22qia2" path="res://Assets/SFX/arrow 1.wav" id="8_jlvik"]
+[ext_resource type="AudioStream" uid="uid://wbbe7xx8881r" path="res://Assets/SFX/move.wav" id="10_jhyir"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l022t"]
 size = Vector2(50, 50)
@@ -153,3 +156,16 @@ rotation = 1.5707964
 scale = Vector2(2.1171103, 2.1171103)
 sprite_frames = SubResource("SpriteFrames_dk6l3")
 animation = &"explode"
+
+[node name="BombExplode" type="AudioStreamPlayer" parent="." unique_id=549146374]
+stream = ExtResource("8_gk6dx")
+volume_db = 8.0
+
+[node name="Arrow1" type="AudioStreamPlayer" parent="." unique_id=932165583]
+stream = ExtResource("8_jlvik")
+volume_db = 6.0
+
+[node name="Move" type="AudioStreamPlayer" parent="." unique_id=823597759]
+stream = ExtResource("10_jhyir")
+volume_db = -7.0
+pitch_scale = 0.93

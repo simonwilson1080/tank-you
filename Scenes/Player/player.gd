@@ -20,6 +20,7 @@ func play_explosion() -> void:
 	$Canon/Canon.hide()
 	$Explosion.show()
 	$Explosion.play("explode")
+	$BombExplode.play()
 
 # send player that died to connection screen
 func die() -> void:
@@ -32,6 +33,7 @@ func die() -> void:
 	await $Explosion.animation_finished
 	queue_free()
 
+	# send back to connect menu
 	var game = get_tree().current_scene
 	if victim_peer_id == multiplayer.get_unique_id():
 		game.return_to_connection_screen()
@@ -61,7 +63,8 @@ func _physics_process(delta: float) -> void:
 	velocity = velocity.move_toward(input_vector * speed, 400 * delta)
 	if velocity != Vector2.ZERO:
 		$Tank.play("move")
-	
+		if not $Move.playing:
+			$Move.play()
 	
 	if velocity != Vector2.ZERO:
 		self.rotation = velocity.angle()

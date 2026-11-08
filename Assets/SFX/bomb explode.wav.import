@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ckcod7ne1did3"
+path="res://.godot/imported/bomb explode.wav-69d9a42a47ee9905ecd3a490e0012e10.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/bomb explode.wav"
+dest_files=["res://.godot/imported/bomb explode.wav-69d9a42a47ee9905ecd3a490e0012e10.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

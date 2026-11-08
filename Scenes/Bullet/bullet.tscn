@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b0253ea2hjlcc" path="res://Assets/Bullet.png" id="1_k7rnr"]
 [ext_resource type="Script" uid="uid://bnn8f4c2ia5w8" path="res://Scenes/Bullet/bullet.gd" id="1_lv0gj"]
+[ext_resource type="AudioStream" uid="uid://7mo7i4seanqd" path="res://Assets/SFX/tink.wav" id="3_nt0l2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k7rnr"]
 radius = 5.0
@@ -23,5 +24,9 @@ shape = SubResource("CapsuleShape2D_k7rnr")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=934688485]
 scale = Vector2(0.64290935, 0.64290935)
+
+[node name="Tink" type="AudioStreamPlayer" parent="." unique_id=1054607081]
+stream = ExtResource("3_nt0l2")
+volume_db = 2.933
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
