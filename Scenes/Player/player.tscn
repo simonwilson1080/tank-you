@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://coc8gfv5xibmi"]
 
 [ext_resource type="Script" uid="uid://dyw5yp8rkgn1c" path="res://Scenes/Player/player.gd" id="1_xpcdj"]
+[ext_resource type="Texture2D" uid="uid://du215kib677dt" path="res://Assets/explosion.png" id="2_0u5uq"]
 [ext_resource type="Texture2D" uid="uid://ccbob1ylp0vo6" path="res://Assets/TANK-BODY.png" id="2_dd0ac"]
 [ext_resource type="Texture2D" uid="uid://cuywiltrsfcl3" path="res://Assets/GUN.png" id="4_0u5uq"]
 [ext_resource type="Script" uid="uid://bor01lwgrywv8" path="res://Scenes/Player/cannon.gd" id="4_mtuoh"]
@@ -9,6 +10,34 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l022t"]
 size = Vector2(50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oikmp"]
+atlas = ExtResource("2_0u5uq")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_06tpx"]
+atlas = ExtResource("2_0u5uq")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7g0yx"]
+atlas = ExtResource("2_0u5uq")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dey5f"]
+atlas = ExtResource("2_0u5uq")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r5xpd"]
+atlas = ExtResource("2_0u5uq")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ks1b7"]
+atlas = ExtResource("2_0u5uq")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hnuln"]
+atlas = ExtResource("2_0u5uq")
+region = Rect2(288, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jlvik"]
 atlas = ExtResource("2_dd0ac")
@@ -28,6 +57,32 @@ region = Rect2(64, 64, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dk6l3"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oikmp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_06tpx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7g0yx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dey5f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r5xpd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ks1b7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hnuln")
+}],
+"loop": 0,
+"name": &"explode",
+"speed": 12.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jlvik")
@@ -65,17 +120,16 @@ script = ExtResource("1_xpcdj")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=967386705]
 shape = SubResource("RectangleShape2D_l022t")
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=405102394]
+[node name="Tank" type="AnimatedSprite2D" parent="." unique_id=405102394]
 texture_filter = 1
 rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_dk6l3")
 animation = &"move"
-frame_progress = 0.23551683
 
 [node name="Canon" type="Node2D" parent="." unique_id=1468192755]
 script = ExtResource("4_mtuoh")
 
-[node name="Sprite2D2" type="Sprite2D" parent="Canon" unique_id=1483557758]
+[node name="Canon" type="Sprite2D" parent="Canon" unique_id=1483557758]
 texture_filter = 1
 position = Vector2(11, 0)
 rotation = 1.5707964
@@ -91,3 +145,11 @@ replication_config = SubResource("SceneReplicationConfig_dd0ac")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=722894292]
 replication_config = SubResource("SceneReplicationConfig_mtuoh")
+
+[node name="Explosion" type="AnimatedSprite2D" parent="." unique_id=347738071]
+visible = false
+texture_filter = 1
+rotation = 1.5707964
+scale = Vector2(2.1171103, 2.1171103)
+sprite_frames = SubResource("SpriteFrames_dk6l3")
+animation = &"explode"
