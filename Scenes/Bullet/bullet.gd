@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Bullet
 
-@export var SPEED: float = 600.0
+@export var SPEED: float = 300.0
 var shooter: Node2D = null
 var bounce_count = 0
 

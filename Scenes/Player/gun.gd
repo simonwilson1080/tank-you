@@ -13,6 +13,12 @@ func shoot() -> void:
 	bullet.top_level = true
 	bullet.shooter = get_parent().get_parent()
 	bullet.global_transform = global_transform
+	
+	# move the bullets spawn point further ahead of the barrel
+	# this stops the bullet from dragging the tank off with it
+	bullet.global_transform = global_transform
+	bullet.global_position += bullet.global_transform.x * 20.0
+	
 	add_child(bullet)
 	
 func _process(_delta: float) -> void:

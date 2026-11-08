@@ -58,7 +58,7 @@ func _physics_process(delta: float) -> void:
 	input_vector.y = Input.get_action_strength("down") - Input.get_action_strength("up")
 	input_vector = input_vector.normalized()
 	
-	velocity = velocity.move_toward(input_vector * speed, 1000 * delta)
+	velocity = velocity.move_toward(input_vector * speed, 400 * delta)
 	if velocity != Vector2.ZERO:
 		$Tank.play("move")
 	
