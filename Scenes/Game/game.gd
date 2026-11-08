@@ -21,3 +21,12 @@ func _on_connection_manager_hosting() -> void:
 		func(pid) -> void:
 			world.spawn_player(pid)
 	)
+
+@rpc("authority", "call_remote", "reliable")
+func return_to_connection_screen() -> void:
+	if multiplayer.is_server():
+		$UI/ConnectionManager.show()
+		return
+
+	multiplayer.multiplayer_peer = OfflineMultiplayerPeer.new()
+	get_tree().reload_current_scene()

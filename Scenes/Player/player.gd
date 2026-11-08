@@ -8,6 +8,20 @@ var rot = 0.0
 func _enter_tree() -> void:
 	set_multiplayer_authority(int(str(name)))
 
+# send player that died to connection screen
+func die() -> void:
+	if !multiplayer.is_server():
+		return
+
+	var victim_peer_id = int(name)
+	queue_free()
+
+	var game = get_tree().current_scene
+	if victim_peer_id == multiplayer.get_unique_id():
+		game.return_to_connection_screen()
+	else:
+		game.rpc_id(victim_peer_id, "return_to_connection_screen")
+
 func _physics_process(delta: float) -> void:
 	# restricting host from controlling joined players
 	if !is_multiplayer_authority():

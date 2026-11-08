@@ -25,10 +25,12 @@ func _physics_process(delta: float) -> void:
 			global_position += movement
 			return
 			
-		# Handle Player hit
-		if body.is_in_group("player"):
-			body.queue_free()
-			get_tree().change_scene_to_file("res://Scenes/Game/Game.tscn")
+		# Handle Player hit.
+		# now calls die function so only the player that was hit gets connection screen
+		if body is Player:
+			if multiplayer.is_server():
+				body.die()
+			queue_free()
 			return
 			
 
