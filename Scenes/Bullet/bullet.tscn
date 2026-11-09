@@ -15,7 +15,7 @@ script = ExtResource("1_lv0gj")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1031925024]
 texture_filter = 1
 rotation = 1.5707964
-scale = Vector2(0.9584694, 0.9584694)
+scale = Vector2(1.099958, 1.099958)
 texture = ExtResource("2_nt0l2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1849935358]

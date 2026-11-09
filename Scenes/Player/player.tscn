@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dyw5yp8rkgn1c" path="res://Scenes/Player/player.gd" id="1_xpcdj"]
 [ext_resource type="Texture2D" uid="uid://du215kib677dt" path="res://Assets/explosion.png" id="2_0u5uq"]
+[ext_resource type="Texture2D" uid="uid://c4pw72ig4i262" path="res://Assets/minimap_icon.png" id="2_74mp2"]
 [ext_resource type="Texture2D" uid="uid://ccbob1ylp0vo6" path="res://Assets/TANK-BODY.png" id="2_dd0ac"]
 [ext_resource type="Texture2D" uid="uid://cuywiltrsfcl3" path="res://Assets/GUN.png" id="4_0u5uq"]
 [ext_resource type="Script" uid="uid://bor01lwgrywv8" path="res://Scenes/Player/cannon.gd" id="4_mtuoh"]
@@ -120,6 +121,14 @@ properties/1/replication_mode = 1
 [node name="Player" type="CharacterBody2D" unique_id=1613934413 groups=["player"]]
 script = ExtResource("1_xpcdj")
 
+[node name="MiniMapIcon" type="Sprite2D" parent="." unique_id=2008119128]
+light_mask = 0
+visibility_layer = 2
+z_index = 1
+texture_filter = 1
+scale = Vector2(13.551913, 13.551913)
+texture = ExtResource("2_74mp2")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=967386705]
 shape = SubResource("RectangleShape2D_l022t")
 
@@ -146,9 +155,6 @@ bullet_scene = ExtResource("6_dd0ac")
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="Canon" unique_id=2119769273]
 replication_config = SubResource("SceneReplicationConfig_dd0ac")
 
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=722894292]
-replication_config = SubResource("SceneReplicationConfig_mtuoh")
-
 [node name="Explosion" type="AnimatedSprite2D" parent="." unique_id=347738071]
 visible = false
 texture_filter = 1
@@ -157,16 +163,37 @@ scale = Vector2(2.1171103, 2.1171103)
 sprite_frames = SubResource("SpriteFrames_dk6l3")
 animation = &"explode"
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=333364546]
+light_mask = 0
+
+[node name="MinimapLayer" type="CanvasLayer" parent="." unique_id=125805996]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MinimapLayer" unique_id=1433170523]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="MinimapLayer/SubViewportContainer" unique_id=1842666621]
+handle_input_locally = false
+size = Vector2i(175, 200)
+render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="MinimapLayer/SubViewportContainer/SubViewport" unique_id=1844757227]
+light_mask = 0
+visibility_layer = 3
+offset = Vector2(0, -75)
+zoom = Vector2(0.075, 0.075)
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=722894292]
+replication_config = SubResource("SceneReplicationConfig_mtuoh")
+
 [node name="BombExplode" type="AudioStreamPlayer" parent="." unique_id=549146374]
 stream = ExtResource("8_gk6dx")
 volume_db = 8.0
-
-[node name="Arrow1" type="AudioStreamPlayer" parent="." unique_id=932165583]
-stream = ExtResource("8_jlvik")
-volume_db = 6.0
 
 [node name="Move" type="AudioStreamPlayer" parent="." unique_id=823597759]
 stream = ExtResource("10_jhyir")
 pitch_scale = 0.72
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=333364546]
+[node name="Arrow1" type="AudioStreamPlayer" parent="." unique_id=932165583]
+stream = ExtResource("8_jlvik")
+volume_db = 6.0

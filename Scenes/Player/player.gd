@@ -3,10 +3,37 @@ extends CharacterBody2D
 
 @export var speed: float = 100.0
 
+@onready var minimap_layer: CanvasLayer = $MinimapLayer
+@onready var minimap_viewport: SubViewport = $MinimapLayer/SubViewportContainer/SubViewport
+@onready var minimap_camera: Camera2D = $MinimapLayer/SubViewportContainer/SubViewport/Camera2D
+
 var rot = 0.0
 
 func _ready() -> void:
+	# sets main camera to hide the minimap icon
+	# sets the minimap camera to show minimap icon
+	get_viewport().canvas_cull_mask = 1
+	minimap_viewport.canvas_cull_mask = 3
+
 	$Camera2D.enabled = is_multiplayer_authority()
+	
+	# makes it so it shows the level and all players
+	minimap_layer.visible = is_multiplayer_authority()
+	if not is_multiplayer_authority():
+		return
+
+	minimap_viewport.world_2d = get_viewport().world_2d
+
+	# calculates center of map from object
+	# assigns it as the position for the view for every client.
+	# minimap will be the same for every client
+	var level := get_tree().current_scene.get_node("World/BigLevel") as TileMapLayer
+	var cells := level.get_used_rect()
+	if cells.size != Vector2i.ZERO:
+		var first := level.map_to_local(cells.position)
+		var last := level.map_to_local(cells.end - Vector2i.ONE)
+		minimap_camera.global_position = level.to_global((first + last) / 2.0)
+
 
 func _enter_tree() -> void:
 	set_multiplayer_authority(int(str(name)))

@@ -7,7 +7,6 @@ signal server_joined
 @export var host_ip: LineEdit
 @export var host_port: LineEdit
 
-
 var peer = ENetMultiplayerPeer.new()
 
 func _on_host_e_net_pressed() -> void:
@@ -16,7 +15,7 @@ func _on_host_e_net_pressed() -> void:
 
 	multiplayer.peer_connected.connect(
 		func(pid) -> void:
-			print(str(pid) + "has connected to your game.")
+			print(str(pid) + " has connected to your game.")
 	)
 	
 	server_created.emit()
