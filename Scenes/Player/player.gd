@@ -17,6 +17,8 @@ func _ready() -> void:
 
 	$Camera2D.enabled = is_multiplayer_authority()
 	
+	minimap_layer.visible = false
+	
 	# makes it so it shows the level and all players
 	minimap_layer.visible = is_multiplayer_authority()
 	if not is_multiplayer_authority():
@@ -34,6 +36,10 @@ func _ready() -> void:
 		var last := level.map_to_local(cells.end - Vector2i.ONE)
 		minimap_camera.global_position = level.to_global((first + last) / 2.0)
 
+func _process(_delta: float) -> void:
+	# show minimap when holding down 'space'
+	if is_multiplayer_authority():
+		minimap_layer.visible = Input.is_action_pressed("ShowMap")
 
 func _enter_tree() -> void:
 	set_multiplayer_authority(int(str(name)))
