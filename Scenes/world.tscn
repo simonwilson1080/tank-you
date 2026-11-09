@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://cjxudsimma73h"]
 
 [ext_resource type="Script" uid="uid://capgxru13deph" path="res://Scenes/world.gd" id="1_go701"]
-[ext_resource type="PackedScene" uid="uid://d3mvhgaqfcx5y" path="res://Scenes/level1.tscn" id="1_j0p05"]
 [ext_resource type="PackedScene" uid="uid://coc8gfv5xibmi" path="res://Scenes/Player/player.tscn" id="2_j0p05"]
+[ext_resource type="PackedScene" uid="uid://d3cs77o5t0nvo" path="res://Scenes/BigLevel.tscn" id="3_8j60k"]
 
 [node name="World" type="Node2D" unique_id=170659947 node_paths=PackedStringArray("player_spawner")]
 script = ExtResource("1_go701")
 player_scene = ExtResource("2_j0p05")
 player_spawner = NodePath("OnlineEntities/PlayerSpawner")
 
-[node name="Level1" parent="." unique_id=2135416209 instance=ExtResource("1_j0p05")]
+[node name="BigLevel" parent="." unique_id=1343169068 instance=ExtResource("3_8j60k")]
 
 [node name="OnlineEntities" type="Node" parent="." unique_id=1464647381]
 
@@ -20,13 +20,13 @@ spawn_path = NodePath("..")
 [node name="SpawnPoints" type="Node2D" parent="." unique_id=1515530252]
 
 [node name="Marker2D" type="Marker2D" parent="SpawnPoints" unique_id=12151344]
-position = Vector2(159, 486)
+position = Vector2(-522, 1352)
 
 [node name="Marker2D2" type="Marker2D" parent="SpawnPoints" unique_id=1604812437]
-position = Vector2(981, 146)
+position = Vector2(1338, -884)
 
 [node name="Marker2D3" type="Marker2D" parent="SpawnPoints" unique_id=1528981682]
-position = Vector2(567, 128)
+position = Vector2(-345, -548)
 
 [node name="Marker2D4" type="Marker2D" parent="SpawnPoints" unique_id=268579484]
-position = Vector2(571, 533)
+position = Vector2(950, 347)

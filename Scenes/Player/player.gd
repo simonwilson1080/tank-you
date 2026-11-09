@@ -5,6 +5,9 @@ extends CharacterBody2D
 
 var rot = 0.0
 
+func _ready() -> void:
+	$Camera2D.enabled = is_multiplayer_authority()
+
 func _enter_tree() -> void:
 	set_multiplayer_authority(int(str(name)))
 	

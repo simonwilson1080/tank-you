@@ -167,5 +167,7 @@ volume_db = 6.0
 
 [node name="Move" type="AudioStreamPlayer" parent="." unique_id=823597759]
 stream = ExtResource("10_jhyir")
-volume_db = -7.0
-pitch_scale = 0.93
+volume_db = -10.0
+pitch_scale = 0.82
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=333364546]

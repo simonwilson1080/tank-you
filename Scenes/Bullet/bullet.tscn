@@ -28,5 +28,3 @@ scale = Vector2(0.64290935, 0.64290935)
 [node name="Tink" type="AudioStreamPlayer" parent="." unique_id=1054607081]
 stream = ExtResource("3_nt0l2")
 volume_db = 2.933
-
-[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -1,7 +1,7 @@
 extends Node
 
 @onready var world: World = $World
-@onready var music: AudioStreamPlayer = $World/Level1/AudioStreamPlayer
+@onready var music: AudioStreamPlayer = $World/BigLevel/AudioStreamPlayer
 
 func _ready() -> void:
 	var connection_manager: ConnectionManager = $UI/ConnectionManager
