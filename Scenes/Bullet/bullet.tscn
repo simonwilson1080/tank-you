@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://duxukgo82n6uv"]
 
-[ext_resource type="Texture2D" uid="uid://b0253ea2hjlcc" path="res://Assets/Bullet.png" id="1_k7rnr"]
 [ext_resource type="Script" uid="uid://bnn8f4c2ia5w8" path="res://Scenes/Bullet/bullet.gd" id="1_lv0gj"]
+[ext_resource type="Texture2D" uid="uid://b0253ea2hjlcc" path="res://Assets/Bullet.png" id="2_nt0l2"]
 [ext_resource type="AudioStream" uid="uid://7mo7i4seanqd" path="res://Assets/SFX/tink.wav" id="3_nt0l2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k7rnr"]
-radius = 5.0
+radius = 4.0
 height = 22.0
 
 [node name="Bullet" type="CharacterBody2D" unique_id=944557022]
@@ -15,8 +15,8 @@ script = ExtResource("1_lv0gj")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1031925024]
 texture_filter = 1
 rotation = 1.5707964
-scale = Vector2(0.7093384, 0.7093384)
-texture = ExtResource("1_k7rnr")
+scale = Vector2(0.9584694, 0.9584694)
+texture = ExtResource("2_nt0l2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1849935358]
 rotation = 1.5707964
