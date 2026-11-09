@@ -192,7 +192,7 @@ volume_db = 8.0
 
 [node name="Move" type="AudioStreamPlayer" parent="." unique_id=823597759]
 stream = ExtResource("10_jhyir")
-pitch_scale = 0.72
+pitch_scale = 0.7
 
 [node name="Arrow1" type="AudioStreamPlayer" parent="." unique_id=932165583]
 stream = ExtResource("8_jlvik")

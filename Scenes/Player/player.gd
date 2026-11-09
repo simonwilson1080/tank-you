@@ -2,6 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 @export var speed: float = 100.0
+var _is_dying := false
 
 @onready var minimap_layer: CanvasLayer = $MinimapLayer
 @onready var minimap_viewport: SubViewport = $MinimapLayer/SubViewportContainer/SubViewport
@@ -12,6 +13,7 @@ var rot = 0.0
 func _ready() -> void:
 	# sets main camera to hide the minimap icon
 	# sets the minimap camera to show minimap icon
+	# culling masks are not options in my version I guess
 	get_viewport().canvas_cull_mask = 1
 	minimap_viewport.canvas_cull_mask = 3
 
@@ -60,21 +62,28 @@ func play_explosion() -> void:
 
 # send player that died to connection screen
 func die() -> void:
-	if !multiplayer.is_server():
+	if not multiplayer.is_server() or _is_dying:
 		return
 
+	_is_dying = true
 	var victim_peer_id = int(name)
-	# play the explosion and wait for it to finish before removing player
-	play_explosion.rpc()
-	await $Explosion.animation_finished
-	queue_free()
+	var world := get_tree().current_scene.get_node("World") as World
 
-	# send back to connect menu
-	var game = get_tree().current_scene
-	if victim_peer_id == multiplayer.get_unique_id():
-		game.return_to_connection_screen()
-	else:
-		game.rpc_id(victim_peer_id, "return_to_connection_screen")
+	play_explosion.rpc()
+	await get_tree().create_timer(0.7).timeout
+	
+	queue_free()
+	await tree_exited
+	
+	world.spawn_player(victim_peer_id)
+
+	## REMOVED SO THEY RESPAWN INSTEAD
+	## send back to connect menu
+	#var game = get_tree().current_scene
+	#if victim_peer_id == multiplayer.get_unique_id():
+		#game.return_to_connection_screen()
+	#else:
+		#game.rpc_id(victim_peer_id, "return_to_connection_screen")
 
 func _physics_process(delta: float) -> void:
 	# restricting host from controlling joined players
