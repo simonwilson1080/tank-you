@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" uid="uid://capgxru13deph" path="res://Scenes/world.gd" id="1_go701"]
 [ext_resource type="PackedScene" uid="uid://coc8gfv5xibmi" path="res://Scenes/Player/player.tscn" id="2_j0p05"]
-[ext_resource type="PackedScene" uid="uid://d3cs77o5t0nvo" path="res://Scenes/BigLevel.tscn" id="3_8j60k"]
+[ext_resource type="PackedScene" uid="uid://cdp5ry2u1853w" path="res://Scenes/BigLevel.scn" id="3_5a7ea"]
 
 [node name="World" type="Node2D" unique_id=170659947 node_paths=PackedStringArray("player_spawner")]
 script = ExtResource("1_go701")
 player_scene = ExtResource("2_j0p05")
 player_spawner = NodePath("OnlineEntities/PlayerSpawner")
 
-[node name="BigLevel" parent="." unique_id=1343169068 instance=ExtResource("3_8j60k")]
+[node name="BigLevel" parent="." unique_id=1343169068 instance=ExtResource("3_5a7ea")]
 
 [node name="OnlineEntities" type="Node" parent="." unique_id=1464647381]
 
