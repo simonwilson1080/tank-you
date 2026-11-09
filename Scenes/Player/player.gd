@@ -105,7 +105,13 @@ func _physics_process(delta: float) -> void:
 	input_vector.y = Input.get_action_strength("down") - Input.get_action_strength("up")
 	input_vector = input_vector.normalized()
 	
-	velocity = velocity.move_toward(input_vector * speed, 400 * delta)
+	# spacebar for boost
+	var current_speed := speed
+	if Input.is_action_pressed("Boost"):
+		current_speed *= 1.9
+
+	velocity = velocity.move_toward(input_vector * current_speed, 400 * delta)
+	
 	if velocity != Vector2.ZERO:
 		$Tank.play("move")
 		if not $Move.playing:
