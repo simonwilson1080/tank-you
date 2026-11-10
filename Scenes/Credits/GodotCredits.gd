@@ -32,7 +32,7 @@ var credits = [
 	],[
 		"Art",
 		"",
-		"Quinn"
+		"Quinn",
 		"",
 		"Simon",
 		"",

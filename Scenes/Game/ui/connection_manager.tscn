@@ -46,6 +46,9 @@ theme_override_constants/margin_left = 350
 theme_override_constants/margin_top = 75
 theme_override_constants/margin_right = 350
 
+[node name="BoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1592429110]
+layout_mode = 2
+
 [node name="ConnectionMethods" type="VBoxContainer" parent="MarginContainer" unique_id=813717383]
 layout_mode = 2
 
@@ -84,9 +87,14 @@ text = "Join
 layout_mode = 2
 text = "Host"
 
+[node name="Credits" type="Button" parent="MarginContainer/ConnectionMethods" unique_id=1383009580]
+layout_mode = 2
+text = "Credits"
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=848632164]
 position = Vector2(572, 180)
 texture = ExtResource("3_k1yvb")
 
 [connection signal="pressed" from="MarginContainer/ConnectionMethods/ENet/VBoxContainer/joinMenu/Join" to="MarginContainer/ConnectionMethods/ENet" method="_on_join_pressed"]
 [connection signal="pressed" from="MarginContainer/ConnectionMethods/ENet/VBoxContainer/HostENet" to="MarginContainer/ConnectionMethods/ENet" method="_on_host_e_net_pressed"]
+[connection signal="pressed" from="MarginContainer/ConnectionMethods/Credits" to="." method="_on_credits_pressed"]
